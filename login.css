@@ -22,6 +22,7 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 20%;
+z-index: 0;
 }
 form {
   display: flex;
@@ -30,6 +31,7 @@ form {
   flex-direction: column;
   gap: 15px;
   width: 100%;
+
 }
 form #email,
 #password {
@@ -73,6 +75,7 @@ svg.wave {
   width: 100%;
   position: absolute;
   bottom: 0;
+z-index:-1;
 }
 .logo {
   height: 10%;
