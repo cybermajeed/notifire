@@ -64,5 +64,5 @@ logoutBtn.onclick = () => {
       alert(error);
     });
 };
-timeTableBoxImg.onclick = () => {};
+
 //------------
