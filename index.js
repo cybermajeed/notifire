@@ -39,8 +39,10 @@ onAuthStateChanged(auth, (user) => {
   if (!user) {
     location.replace("login.html");
   } else {
-    document.title = `Notifire/${user.email.split("@")[0]}`;
-    userNameBox.innerHTML = `Hello! ${user.email.split("@")[0]}`;
+    let userName = user.email.split("@")[0];
+    document.title = `Notifire/${userName}`;
+    userNameBox.innerHTML = `Hello! ${userName}`;
+    timeTableBoxImg.src = `./timetables/${userName}.png`;
   }
 });
 //-------------
@@ -62,4 +64,5 @@ logoutBtn.onclick = () => {
       alert(error);
     });
 };
+timeTableBoxImg.onclick = () => {};
 //------------

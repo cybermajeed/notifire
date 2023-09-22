@@ -27,8 +27,8 @@ body {
   height: 100%;
 }
 .topBox .userNameBox {
-    user-select: none;
-    cursor: pointer;
+  user-select: none;
+  cursor: pointer;
   background: #8e00fd;
   color: #fff;
   border-radius: 5px;
