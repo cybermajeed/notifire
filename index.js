@@ -4,6 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebas
 import {
   getAuth,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,12 +26,40 @@ const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
+//main.js
+
+let topBox = document.querySelector(".topBox"),
+  topBoxLogo = topBox.querySelector(".logo"),
+  userNameBox = topBox.querySelector(".userNameBox"),
+  logoutBox = document.querySelector(".logoutBox"),
+  logoutBtn = document.querySelector(".logoutBox button"),
+  timeTableBoxImg = document.querySelector(".timeTableBox img");
 //-------------
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     location.replace("login.html");
   } else {
     document.title = `Notifire/${user.email.split("@")[0]}`;
+    userNameBox.innerHTML = `Hello! ${user.email.split("@")[0]}`;
   }
 });
 //-------------
+userNameBox.onclick = () => {
+  logoutBox.style.display = "flex";
+  console.log("username clicked!");
+};
+logoutBox.onclick = (e) => {
+  if (e.target != logoutBtn) {
+    logoutBox.style.display = "none";
+  }
+};
+logoutBtn.onclick = () => {
+  signOut(auth)
+    .then(() => {
+      alert("logged out");
+    })
+    .catch((error) => {
+      alert(error);
+    });
+};
+//------------
