@@ -48,7 +48,6 @@ onAuthStateChanged(auth, (user) => {
 //-------------
 userNameBox.onclick = () => {
   logoutBox.style.display = "flex";
-  console.log("username clicked!");
 };
 logoutBox.onclick = (e) => {
   if (e.target != logoutBtn) {
@@ -58,11 +57,17 @@ logoutBox.onclick = (e) => {
 logoutBtn.onclick = () => {
   signOut(auth)
     .then(() => {
-      alert("logged out");
+      alert("you're logged out");
     })
     .catch((error) => {
       alert(error);
     });
 };
-
+window.onresize = changeSize;
+function changeSize() {
+  timeTableBoxImg.style.height = `${
+    window.innerHeight - 5 - topBox.getBoundingClientRect().height
+  }px`;
+}
+changeSize();
 //------------
