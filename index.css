@@ -1,0 +1,57 @@
+* {
+  outline: none;
+  transition: all 0.3s;
+}
+body {
+  background: #fffebc;
+  color: #000;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.topBox {
+  background: dodgerblue;
+  width: calc(100% - 10px);
+  padding: 8px 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 10px #3d3d3d;
+}
+.topBox img.logo {
+  height: 100%;
+}
+.topBox .userNameBox {
+  background: #8e00fd;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(100%-10px);
+  font-size: large;
+  font-weight: 700;
+  text-align: center;
+  font-family: monospace;
+  text-transform: capitalize;
+}
+
+.topBox .logoutBox {
+  opacity: 0;
+  display: none;
+}
+
+.timeTableBox {
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeTableBox img {
+  width: 100%;
+}

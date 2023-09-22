@@ -30,7 +30,6 @@ onAuthStateChanged(auth, (user) => {
   if (!user) {
     location.replace("login.html");
   } else {
-    document.write(`Hello ${user.email.split("@")[0]}!`);
     document.title = `Notifire/${user.email.split("@")[0]}`;
   }
 });
