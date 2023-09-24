@@ -34,11 +34,12 @@ let topBox = document.querySelector(".topBox"),
   logoutBtn = document.querySelector(".logoutBox button"),
   timeTableBoxImg = document.querySelector(".timeTableBox img");
 //-------------
+let userName;
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     location.replace("login.html");
   } else {
-    let userName = user.email.split("@")[0];
+    userName = user.email.split("@")[0];
     document.title = `Notifire/${userName}`;
     userNameBox.innerHTML = `Hello! ${userName}`;
     timeTableBoxImg.src = `./timetables/${userName}.png`;
@@ -72,9 +73,12 @@ changeSize();
 //------------
 
 //notify
-function showNotification(period) {
+function today() {
+  const days = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+}
+function showNotification(periodNum, today) {
   const newNotif = new Notification("Time for class!!!", {
-    body: `${period}`,
+    body: `${timetables[`${userName}`][`${today}`][periodNum]}`,
     icon: "./assets/cehs.png",
     vibrate: true,
   });
@@ -87,7 +91,15 @@ Notification.requestPermission().then((permission) => {
     setInterval(() => {
       let hour = new Date().getHours() - 12,
         mins = new Date().getMinutes() - 12;
-    }, 60000);
+      // mon,tue,wed,thur
+      if (!(today() in [0 /*sun*/, 5 /*fri*/, 6 /*sat*/])) {
+        //period 1
+        if ([hour, mins].join() == [8, 15].join()) {
+          //showNotification(periodNum, day);
+          showNotification(1, today());
+        }
+      }
+    }, 2000);
   } else if (permission == "denied") {
     alert("Notification Blocked");
   }
