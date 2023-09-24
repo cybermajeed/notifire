@@ -1,11 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-//import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
 import {
   getAuth,
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import timetables from "./timetable.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,7 +23,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 //main.js
@@ -71,3 +70,27 @@ function changeSize() {
 }
 changeSize();
 //------------
+
+//notify
+function showNotification(period) {
+  const newNotif = new Notification("Time for class!!!", {
+    body: `${period}`,
+    icon: "./assets/cehs.png",
+    vibrate: true,
+  });
+  newNotif.onclick = () => {
+    window.open(location.href, "_blank");
+  };
+}
+Notification.requestPermission().then((permission) => {
+  if (permission == "granted") {
+    setInterval(() => {
+      let hour = new Date().getHours() - 12,
+        mins = new Date().getMinutes() - 12;
+    }, 60000);
+  } else if (permission == "denied") {
+    alert("Notification Blocked");
+  }
+});
+
+//notify ends
