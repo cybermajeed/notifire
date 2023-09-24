@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notifire</title>
     <link rel="stylesheet" href="index.css" />
+        <!---->
+    <script
+      src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+      defer
+    ></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(function (OneSignal) {
+        OneSignal.init({
+          appId: "5e10f9f1-b315-4263-b3cf-cc9744eb4d24",
+          safari_web_id:
+            "web.onesignal.auto.57daeefd-2777-4d55-aef6-93b3ff4b973a",
+          notifyButton: {
+            enable: true,
+          },
+        });
+      });
+    </script>
+    <!---->
   </head>
   <body>
     <div class="topBox">
