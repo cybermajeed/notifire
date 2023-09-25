@@ -141,7 +141,7 @@ Notification.requestPermission().then((permission) => {
           showNotification(1, days[today]);
         }
         //period 2
-        else if ([hour, mins].join() == [8, 55].join()) {
+        else if ([hour, mins].join() == [18, 1].join()) {
           //showNotification(periodNum, day);
           showNotification(2, days[today]);
         }
