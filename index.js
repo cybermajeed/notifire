@@ -5,7 +5,6 @@ import {
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import timetables from "./timetable.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -34,12 +33,13 @@ let topBox = document.querySelector(".topBox"),
   logoutBtn = document.querySelector(".logoutBox button"),
   timeTableBoxImg = document.querySelector(".timeTableBox img");
 //-------------
-let userName;
+
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     location.replace("login.html");
   } else {
-    userName = user.email.split("@")[0];
+    let userName = user.email.split("@")[0];
+    sessionStorage.setItem("userName", userName);
     document.title = `Notifire/${userName}`;
     userNameBox.innerHTML = `Hello! ${userName}`;
     timeTableBoxImg.src = `./timetables/${userName}.png`;
@@ -71,9 +71,34 @@ function changeSize() {
 }
 changeSize();
 //------------
-
 //notify
+const timetables = {
+  manju: {
+    subject: "physics",
+    monday: ["", "12A", "", "", "12A", "12A", "", ""],
+    tuesday: ["", "", "", "12A", "12A", "", "12A", ""],
+    wednesday: ["", "11A", "11A", "", "12A", "", "", ""],
+    thursday: ["", "11A", "11A", "", "", "12A", "11A", ""],
+    friday: ["", "12A", "", ""],
+  },
+};
+/*
+timing
+1 - 8:15
+2 - 8:55
+3 - 9:35
+4 - 10:30
+5 - 11:10
+6 - 12:05
+7 - 12:45
+8 - 13:25
 
+fri
+1 - 8:20
+2 - 9:05
+3 - 10:05
+4 - 10:50
+*/
 const days = [
   "sunday",
   "monday",
@@ -84,10 +109,19 @@ const days = [
   "saturday",
 ];
 function showNotification(periodNum, today) {
-  const newNotif = new Notification("Time for class!!!", {
-    body: `${timetables[`${userName}`][`${today}`][periodNum]}`,
-    icon: "./assets/cehs.png",
-    vibrate: true,
+  let periodName = timetables[sessionStorage.userName][today][periodNum - 1];
+  let body = `${
+    timetables[sessionStorage.userName]["subject"]
+  } @ ${periodName}`;
+  let title = "Time for Class!!!";
+  if (periodName == "") {
+    title = "Relax!!!";
+    body = "It's a Free Period";
+  }
+
+  const newNotif = new Notification(title, {
+    body: body,
+    icon: "./assets/logo.png",
   });
   newNotif.onclick = () => {
     window.open(location.href, "_blank");
@@ -100,7 +134,7 @@ Notification.requestPermission().then((permission) => {
         mins = new Date().getMinutes(),
         today = new Date().getDay();
       // mon,tue,wed,thur
-      if (!(today in [0 /*sun*/, 5 /*fri*/, 6 /*sat*/])) {
+      if (today in [1, 2, 3, 4]) {
         //period 1
         if ([hour, mins].join() == [8, 15].join()) {
           //showNotification(periodNum, day);
