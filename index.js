@@ -122,6 +122,7 @@ function showNotification(periodNum, today) {
   const newNotif = new Notification(title, {
     body: body,
     icon: "./assets/logo.png",
+    vibrate: true,
   });
   newNotif.onclick = () => {
     window.open(location.href, "_blank");
@@ -132,46 +133,47 @@ Notification.requestPermission().then((permission) => {
     setInterval(() => {
       let hour = new Date().getHours(),
         mins = new Date().getMinutes(),
+        secs = new Date().getSeconds(),
         today = new Date().getDay();
       // mon,tue,wed,thur
       if (today in [1, 2, 3, 4]) {
         //period 1
-        if ([hour, mins].join() == [8, 15].join()) {
+        if ([hour, mins, secs].join() == [8, 15, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(1, days[today]);
         }
         //period 2
-        else if ([hour, mins].join() == [9, 55].join()) {
+        else if ([hour, mins, secs].join() == [8, 55, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(2, days[today]);
         }
         //period 3
-        else if ([hour, mins].join() == [9, 35].join()) {
+        else if ([hour, mins, secs].join() == [9, 35, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(3, days[today]);
         }
         //period 4
-        else if ([hour, mins].join() == [10, 30].join()) {
+        else if ([hour, mins, secs].join() == [10, 30, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(4, days[today]);
         }
         //period 5
-        else if ([hour, mins].join() == [11, 10].join()) {
+        else if ([hour, mins, secs].join() == [11, 10, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(5, days[today]);
         }
         //period 6
-        else if ([hour, mins].join() == [12, 5].join()) {
+        else if ([hour, mins, secs].join() == [12, 5, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(6, days[today]);
         }
         //period 7
-        else if ([hour, mins].join() == [12, 45].join()) {
+        else if ([hour, mins, secs].join() == [12, 45, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(7, days[today]);
         }
         //period 8
-        else if ([hour, mins].join() == [13, 25].join()) {
+        else if ([hour, mins, secs].join() == [13, 25, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(8, days[today]);
         }
@@ -179,27 +181,27 @@ Notification.requestPermission().then((permission) => {
       //fri
       if (today == 5) {
         //period 1
-        if ([hour, mins].join() == [8, 20].join()) {
+        if ([hour, mins, secs].join() == [8, 20, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(1, days[today]);
         }
         //period 2
-        if ([hour, mins].join() == [9, 5].join()) {
+        if ([hour, mins, secs].join() == [9, 5, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(1, days[today]);
         }
         //period 3
-        if ([hour, mins].join() == [10, 5].join()) {
+        if ([hour, mins, secs].join() == [10, 5, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(1, days[today]);
         }
         //period 4
-        if ([hour, mins].join() == [10, 50].join()) {
+        if ([hour, mins, secs].join() == [10, 50, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(1, days[today]);
         }
       }
-    }, 2000);
+    }, 500);
   } else if (permission == "denied") {
     alert("Notification Blocked");
   }
