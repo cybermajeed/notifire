@@ -73,9 +73,16 @@ changeSize();
 //------------
 
 //notify
-function today() {
-  const days = ["monday", "tuesday", "wednesday", "thursday", "friday"];
-}
+
+const days = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
 function showNotification(periodNum, today) {
   const newNotif = new Notification("Time for class!!!", {
     body: `${timetables[`${userName}`][`${today}`][periodNum]}`,
@@ -89,14 +96,73 @@ function showNotification(periodNum, today) {
 Notification.requestPermission().then((permission) => {
   if (permission == "granted") {
     setInterval(() => {
-      let hour = new Date().getHours() - 12,
-        mins = new Date().getMinutes() - 12;
+      let hour = new Date().getHours(),
+        mins = new Date().getMinutes(),
+        today = new Date().getDay();
       // mon,tue,wed,thur
-      if (!(today() in [0 /*sun*/, 5 /*fri*/, 6 /*sat*/])) {
+      if (!(today in [0 /*sun*/, 5 /*fri*/, 6 /*sat*/])) {
         //period 1
         if ([hour, mins].join() == [8, 15].join()) {
           //showNotification(periodNum, day);
-          showNotification(1, today());
+          showNotification(1, days[today]);
+        }
+        //period 2
+        else if ([hour, mins].join() == [8, 55].join()) {
+          //showNotification(periodNum, day);
+          showNotification(2, days[today]);
+        }
+        //period 3
+        else if ([hour, mins].join() == [9, 35].join()) {
+          //showNotification(periodNum, day);
+          showNotification(3, days[today]);
+        }
+        //period 4
+        else if ([hour, mins].join() == [10, 30].join()) {
+          //showNotification(periodNum, day);
+          showNotification(4, days[today]);
+        }
+        //period 5
+        else if ([hour, mins].join() == [11, 10].join()) {
+          //showNotification(periodNum, day);
+          showNotification(5, days[today]);
+        }
+        //period 6
+        else if ([hour, mins].join() == [12, 5].join()) {
+          //showNotification(periodNum, day);
+          showNotification(6, days[today]);
+        }
+        //period 7
+        else if ([hour, mins].join() == [12, 45].join()) {
+          //showNotification(periodNum, day);
+          showNotification(7, days[today]);
+        }
+        //period 8
+        else if ([hour, mins].join() == [13, 25].join()) {
+          //showNotification(periodNum, day);
+          showNotification(8, days[today]);
+        }
+      }
+      //fri
+      if (today == 5) {
+        //period 1
+        if ([hour, mins].join() == [8, 20].join()) {
+          //showNotification(periodNum, day);
+          showNotification(1, days[today]);
+        }
+        //period 2
+        if ([hour, mins].join() == [9, 5].join()) {
+          //showNotification(periodNum, day);
+          showNotification(1, days[today]);
+        }
+        //period 3
+        if ([hour, mins].join() == [10, 5].join()) {
+          //showNotification(periodNum, day);
+          showNotification(1, days[today]);
+        }
+        //period 4
+        if ([hour, mins].join() == [10, 50].join()) {
+          //showNotification(periodNum, day);
+          showNotification(1, days[today]);
         }
       }
     }, 2000);
