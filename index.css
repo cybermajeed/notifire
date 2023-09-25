@@ -14,7 +14,7 @@ body {
   flex-direction: column;
 }
 .topBox {
-  background: dodgerblue;
+  background: linear-gradient(180deg, #ff7f24, #ed1a23);
   width: calc(100% - 20px);
   padding: 8px 10px;
   display: flex;
@@ -25,6 +25,7 @@ body {
 }
 .topBox img.logo {
   height: 100%;
+  max-height: 50px;
 }
 .topBox .userNameBox {
   user-select: none;
