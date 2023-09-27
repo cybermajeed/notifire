@@ -128,9 +128,9 @@ function showNotification(periodNum, today) {
     window.open(location.href, "_blank");
   };
 }
-Notification.requestPermission().then((permission) => {
-  if (permission == "granted") {
-    setInterval(() => {
+setInterval(() => {
+  Notification.requestPermission().then((permission) => {
+    if (permission == "granted") {
       let hour = new Date().getHours(),
         mins = new Date().getMinutes(),
         secs = new Date().getSeconds(),
@@ -201,10 +201,9 @@ Notification.requestPermission().then((permission) => {
           showNotification(1, days[today]);
         }
       }
-    }, 500);
-  } else if (permission == "denied") {
-    alert("Notification Blocked");
-  }
-});
-
+    } else if (permission == "denied") {
+      alert("Notification Blocked");
+    }
+  });
+}, 500);
 //notify ends
