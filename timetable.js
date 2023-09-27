@@ -7,6 +7,14 @@ const timetables = {
     thursday: ["", "11A", "11A", "", "", "12A", "11A", ""],
     friday: ["", "12A", "", ""],
   },
+  shamnad: {
+    subject: "Class",
+    monday: ["", "11A", "", "12AB", "11AB", "11AB", "12A", "8B"],
+    tuesday: ["12A", "8A", "", "11A", "11A", "11AB", "", "8C"],
+    wednesday: ["12AB", "12AB", "", "12A", "11AB", "11A", "12A", "12A"],
+    thursday: ["12AB", "12A", "", "11A", "11AB", "", "12AB", ""],
+    friday: ["11A", "11AB", "8D", "12AB"],
+  },
 };
 /*
   timing

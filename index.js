@@ -118,37 +118,37 @@ setInterval(() => {
           showNotification(1, days[today]);
         }
         //period 2
-        else if ([hour, mins, secs].join() == [8, 55, 0].join()) {
+        if ([hour, mins, secs].join() == [8, 55, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(2, days[today]);
         }
         //period 3
-        else if ([hour, mins, secs].join() == [9, 35, 0].join()) {
+        if ([hour, mins, secs].join() == [9, 35, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(3, days[today]);
         }
         //period 4
-        else if ([hour, mins, secs].join() == [10, 30, 0].join()) {
+        if ([hour, mins, secs].join() == [10, 30, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(4, days[today]);
         }
         //period 5
-        else if ([hour, mins, secs].join() == [11, 10, 0].join()) {
+        if ([hour, mins, secs].join() == [11, 10, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(5, days[today]);
         }
         //period 6
-        else if ([hour, mins, secs].join() == [12, 5, 0].join()) {
+        if ([hour, mins, secs].join() == [12, 5, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(6, days[today]);
         }
         //period 7
-        else if ([hour, mins, secs].join() == [12, 45, 0].join()) {
+        if ([hour, mins, secs].join() == [12, 45, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(7, days[today]);
         }
         //period 8
-        else if ([hour, mins, secs].join() == [13, 25, 0].join()) {
+        if ([hour, mins, secs].join() == [13, 25, 0].join()) {
           //showNotification(periodNum, day);
           showNotification(8, days[today]);
         }
