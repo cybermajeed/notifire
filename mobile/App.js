@@ -6,8 +6,13 @@ import {
   TextInput,
   Platform,
   Pressable,
+  Text,
+  ToastAndroid
 } from "react-native";
 export default function App() {
+  const loginUser = () => {
+    ToastAndroid.show("logged in", ToastAndroid.SHORT);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bg}></View>
@@ -23,12 +28,20 @@ export default function App() {
             placeholder="Username"
             placeholderTextColor={"#949494"}
             keyboardType="email-address"
+            style={styles.loginScreen.loginInputs.username}
           />
           <TextInput
             placeholder="Password"
             placeholderTextColor={"#949494"}
             secureTextEntry={true}
+            style={styles.loginScreen.loginInputs.password}
           />
+          <Pressable
+            onPress={loginUser}
+            style={styles.loginScreen.loginInputs.loginBtn}
+          >
+            <Text>Login</Text>
+          </Pressable>
         </View>
       </View>
     </SafeAreaView>
