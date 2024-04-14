@@ -131,14 +131,14 @@ const styles = StyleSheet.create({
           default: {
             shadowColor: "#000",
             shadowOffset: { width: 0, height: 3 },
-            shadowRadius: 4,
-            shadowOpacity: 0.3,
+            shadowRadius: 5,
+            shadowOpacity: 0.4,
           },
           ios: {
             shadowColor: "#000",
-            shadowOffset: { width: 3, height: 3 },
-            shadowRadius: 3,
-            shadowOpacity: 0.3,
+            shadowOffset: { width: 0, height: 3 },
+            shadowRadius: 5,
+            shadowOpacity: 0.4,
           },
           android: {
             elevation: 5,
