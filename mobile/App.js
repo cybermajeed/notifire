@@ -8,7 +8,6 @@ import {
   Pressable,
   Text,
   Alert,
-  Dimensions,
 } from "react-native";
 /*
 https://www.youtube.com/watch?v=v2R0DFXqaF0
