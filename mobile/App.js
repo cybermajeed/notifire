@@ -124,24 +124,24 @@ const styles = StyleSheet.create({
       },
       loginBtn: {
         paddingVertical: 10,
-        paddingHorizontal: 20,
+        paddingHorizontal: 25,
         marginTop: 10,
-        borderRadius:100,
+        borderRadius: 100,
         ...Platform.select({
           default: {
             shadowColor: "#000",
-            shadowOffset: { width: 0, height: 5 },
-            shadowRadius: 5,
-            shadowOpacity: 0.5,
+            shadowOffset: { width: 0, height: 3 },
+            shadowRadius: 4,
+            shadowOpacity: 0.3,
           },
           ios: {
             shadowColor: "#000",
-            shadowOffset: { width: 0, height: 5 },
-            shadowRadius: 5,
-            shadowOpacity: 0.5,
+            shadowOffset: { width: 3, height: 3 },
+            shadowRadius: 3,
+            shadowOpacity: 0.3,
           },
           android: {
-            elevation: 2,
+            elevation: 5,
           },
         }),
       },
