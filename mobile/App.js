@@ -7,11 +7,15 @@ import {
   Platform,
   Pressable,
   Text,
-  ToastAndroid
+  ToastAndroid,
 } from "react-native";
+/*
+https://www.youtube.com/watch?v=v2R0DFXqaF0
+https://www.youtube.com/watch?v=2hR-uWjBAgw
+*/
 export default function App() {
   const loginUser = () => {
-    ToastAndroid.show("logged in", ToastAndroid.SHORT);
+    ToastAndroid.show("logged in", ToastAndroid.CENTER);
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -45,9 +49,6 @@ export default function App() {
         </View>
       </View>
     </SafeAreaView>
-    /*
-    https://www.youtube.com/watch?v=2hR-uWjBAgw
-    */
   );
 }
 
