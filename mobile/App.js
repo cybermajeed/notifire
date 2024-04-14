@@ -8,6 +8,7 @@ import {
   Pressable,
   Text,
   Alert,
+  Dimensions,
 } from "react-native";
 /*
 https://www.youtube.com/watch?v=v2R0DFXqaF0
@@ -15,7 +16,9 @@ https://www.youtube.com/watch?v=2hR-uWjBAgw
 */
 export default function App() {
   const loginUser = () => {
-    Alert.alert("logged in", "Yes true");
+    Platform.OS === "web"
+      ? alert("logged in", "Yes true")
+      : Alert.alert("logged in", "Yes true");
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -24,9 +27,21 @@ export default function App() {
         <View style={styles.loginScreen.cehsLogo}>
           <Image
             source={require("./assets/cehs.png")}
-            style={{ height: "100%", resizeMode: "contain" }}
+            style={{ width: "100%", resizeMode: "contain" }}
           />
         </View>
+        <Text
+          style={{
+            backgroundColor: "#8300fd",
+            color: "#fff",
+            width: "100%",
+            textAlign: "center",
+            fontSize: 20,
+            paddingVertical: 10,
+          }}
+        >
+          Welcome To Notifire
+        </Text>
         <View style={styles.loginScreen.loginInputs}>
           <TextInput
             placeholder="Username"
@@ -71,7 +86,7 @@ const styles = StyleSheet.create({
     transform: "rotate(-15deg)",
   },
   loginScreen: {
-    height: "90%",
+    height: "85%",
     width: "80%",
     backgroundColor: "#fff",
     borderRadius: 10,
@@ -80,18 +95,56 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     cehsLogo: {
       width: "100%",
-      flex: 1,
+      flex: 1.8,
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
     },
     loginInputs: {
-      flex: 2,
+      flex: 1.2,
       width: "100%",
       height: 100,
-      username: {},
-      password: {},
-      loginBtn: {},
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 20,
+      username: {
+        width: "80%",
+        backgroundColor: "#ebebeb",
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 6,
+      },
+      password: {
+        width: "80%",
+        backgroundColor: "#ebebeb",
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 6,
+      },
+      loginBtn: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginTop: 10,
+        borderRadius:100,
+        ...Platform.select({
+          default: {
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 5 },
+            shadowRadius: 5,
+            shadowOpacity: 0.5,
+          },
+          ios: {
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 5 },
+            shadowRadius: 5,
+            shadowOpacity: 0.5,
+          },
+          android: {
+            elevation: 2,
+          },
+        }),
+      },
     },
     ...Platform.select({
       default: {
