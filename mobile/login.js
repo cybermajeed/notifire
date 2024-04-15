@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { styles } from "./styles";
 import { useState, useEffect } from "react";
 import { auth, signInWithEmailAndPassword } from "./auth";
@@ -47,6 +48,7 @@ export default function App({ navigation }) {
   //
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="auto" />
       <View style={styles.bg}></View>
       <View style={styles.loginScreen}>
         <View style={styles.loginScreen.cehsLogo}>
