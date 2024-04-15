@@ -6,7 +6,7 @@ export default function App({ navigation }) {
   const [name, setName] = useState("");
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      const name = user.email;
+      const name = user.email.split("@")[0];
       setName(name);
     }
   });
@@ -21,7 +21,7 @@ export default function App({ navigation }) {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello {name.split("@")[0]}</Text>
+      <Text>Hello {name}</Text>
       <Button title="Logout" onPress={LogoutUser} />
     </SafeAreaView>
   );

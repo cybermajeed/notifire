@@ -5,6 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+//
 const firebaseConfig = {
   apiKey: "AIzaSyAvVvFLrZDQLIqN0m314ANryJu-zUOOY0Y",
   authDomain: "notifire-6339a.firebaseapp.com",
