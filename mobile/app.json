@@ -21,16 +21,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.cybermajeed.Notifire"
+      }
     },
     "web": {
       "favicon": "./assets/logo.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "768915cc-8129-4740-b178-fe5d9651326d"
-      }
     }
   }
 }
