@@ -2,14 +2,30 @@ import { StatusBar } from "expo-status-bar";
 import { Text, View, Image, TouchableOpacity, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "../style";
-import { auth, signOut, onAuthStateChanged } from "../auth";
+import {
+  auth,
+  signOut,
+  onAuthStateChanged,
+  sRef,
+  storageRef,
+  getDownloadURL,
+} from "../auth";
 import { useState } from "react";
+
 export default function App() {
   const [name, setName] = useState("");
+  const [ttUrl, setTtUrl] = useState("");
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const name = user.email.split("@")[0].toUpperCase();
       setName(name);
+      getDownloadURL(sRef(storageRef, `${name.toLowerCase()}.png`))
+        .then((url) => {
+          setTtUrl(url);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   });
   const LogoutUser = () => {
@@ -54,7 +70,11 @@ export default function App() {
       <View style={styles.dashBoard.timeTableArea}>
         <Image
           style={styles.dashBoard.timeTableArea.Img}
-          source={require("../assets/developer.png")}
+          source={{
+            uri: ttUrl
+              ? ttUrl
+              : "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=cdce32e0-f5d1-4eba-a106-a535a0ebb818",
+          }}
         />
       </View>
     </SafeAreaView>
