@@ -1,3 +1,4 @@
+import { StatusBar } from "expo-status-bar";
 import {
   View,
   SafeAreaView,
@@ -5,8 +6,10 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
+  Alert,
+  ToastAndroid,
+  Platform,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import { styles } from "../style";
 import { useState, useEffect } from "react";
 import { auth, signInWithEmailAndPassword } from "../auth";
@@ -40,10 +43,12 @@ export default function App({ navigation }) {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        Platform.OS == "android"
+          ? ToastAndroid.show(
+              error.code.split("/")[1].toUpperCase(),
+              ToastAndroid.SHORT
+            )
+          : Alert.alert("Alert", error.code.split("/")[1].toUpperCase());
       });
   };
   //
@@ -96,11 +101,7 @@ export default function App({ navigation }) {
           />
 
           <TouchableOpacity
-            onPress={() => {
-              if (username.trim() && password.trim()) {
-                LoginUser;
-              }
-            }}
+            onPress={LoginUser}
             style={styles.loginScreen.loginInputs.loginBtn}
           >
             <Text>Login</Text>

@@ -98,6 +98,54 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  dashBoard: {
+    display: "flex",
+    alignContent: "center",
+    justifyContent: "center",
+    //
+    topNavBar: {
+      height: "10%",
+      width: "100%",
+      justifyContent: "space-between",
+      display: "flex",
+      flexDirection: "row",
+      backgroundColor: "#8300fd",
+      //
+      ImgView: {
+        height: "100%",
+        flex: 1,
+        paddingVertical: 3,
+      },
+      welcomeBtnView: {
+        height: "100%",
+        flex: 1,
+        justifyContent: "center",
+        paddingHorizontal: 10,
+      },
+      Img: {
+        height: "100%",
+        width: "40%",
+        resizeMode: "contain",
+        alignSelf: "flex-start",
+      },
+      welcomeBtn: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        alignSelf: "flex-end",
+        backgroundColor: "#fa373f",
+      },
+    },
+    timeTableArea: {
+      height: "90%",
+      width: "100%",
+      justifyContent: "center",
+      Img: {
+        width: "100%",
+        resizeMode: "contain",
+      },
+    },
+  },
 });
 
 export { styles };
