@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
       Img: {
         width: "100%",
         resizeMode: "contain",
+        height: "100%",
       },
     },
   },

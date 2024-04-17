@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "../style";
 import { auth, signOut, onAuthStateChanged } from "../auth";
 import { useState } from "react";
-export default function App({ navigation }) {
+export default function App() {
   const [name, setName] = useState("");
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -13,13 +13,24 @@ export default function App({ navigation }) {
     }
   });
   const LogoutUser = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("signed out");
-      })
-      .catch((error) => {
-        console.log("signout error: " + error);
-      });
+    Alert.alert("Logout", "Are you sure you want to logout?", [
+      {
+        text: "No",
+        style: "cancel",
+      },
+      {
+        text: "Yes",
+        onPress: () => {
+          signOut(auth)
+            .then(() => {
+              console.log("signed out");
+            })
+            .catch((error) => {
+              console.log("signout error: " + error);
+            });
+        },
+      },
+    ]);
   };
   return (
     <SafeAreaView style={[styles.container, styles.dashBoard]}>
