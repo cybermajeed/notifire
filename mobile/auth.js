@@ -31,18 +31,11 @@ const storageRef = sRef(getStorage(), "timetables");
 const database = getDatabase(app);
 const dbRef = dRef(database);
 //
-let userDisplayName = "";
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    userDisplayName = user.email.split("@")[0].toUpperCase();
-  }
-});
-//
+
 export {
   auth,
   storageRef,
   sRef,
-  userDisplayName,
   get,
   child,
   dbRef,

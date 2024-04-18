@@ -9,17 +9,21 @@ import {
   sRef,
   storageRef,
   getDownloadURL,
+  get,
+  child,
+  dbRef,
 } from "../auth";
 import { useState } from "react";
 export default function App() {
   const [name, setName] = useState("");
   const [ttUrl, setTtUrl] = useState("");
+  const [timetableJSON, setTimetableJSON] = useState("");
   const loadingImg =
     "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=cdce32e0-f5d1-4eba-a106-a535a0ebb818";
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      const tempName = user.email.split("@")[0].toUpperCase();
-      setName(tempName);
+      const displayName = user.email.split("@")[0].toUpperCase();
+      setName(displayName);
       if (name) {
         getDownloadURL(sRef(storageRef, `${name.toLowerCase()}.png`))
           .then((url) => {
@@ -29,6 +33,17 @@ export default function App() {
             console.log(error);
             setTtUrl(loadingImg);
           });
+        /////////////////////////
+        get(child(dbRef, `timetables/${name.toLowerCase()}`))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              setTimetableJSON(snapshot.val());
+            }
+          })
+          .catch((error) => {
+            console.error("----", error);
+          });
+        /////////////////////////
       }
     }
   });
@@ -37,6 +52,7 @@ export default function App() {
       {
         text: "No",
         style: "cancel",
+        onPress: () => console.log(timetableJSON),
       },
       {
         text: "Yes",
@@ -52,6 +68,8 @@ export default function App() {
       },
     ]);
   };
+  //notify
+  //
   return (
     <SafeAreaView style={[styles.container, styles.dashBoard]}>
       <StatusBar style="auto" />

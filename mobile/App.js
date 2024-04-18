@@ -2,15 +2,8 @@ import userLogin from "./app/login";
 import userDashboard from "./app/dashboard";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { auth, onAuthStateChanged } from "./auth";
-import { useState } from "react";
 const Stack = createNativeStackNavigator();
 
-/*
-https://docs.expo.dev/guides/using-firebase/
-search youtube for firebase login localstorage
-notify user when username is wrong
-*/
 
 export default function App() {
   return (
