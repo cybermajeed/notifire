@@ -1,2 +1,1 @@
-//getTimetableJSON, setInterval, background notification
-console.log('helo');
+//getTimetableJSON(username), setInterval() -> backgroundNotification(periodNum)

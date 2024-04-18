@@ -1,11 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { getStorage, ref as sRef,getDownloadURL } from "firebase/storage";
+import { getStorage, ref as sRef, getDownloadURL } from "firebase/storage";
 import {
   getAuth,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  initializeAuth,
+  getReactNativePersistence,
 } from "firebase/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 //
 const firebaseConfig = {
   apiKey: "AIzaSyAvVvFLrZDQLIqN0m314ANryJu-zUOOY0Y",
@@ -20,9 +23,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+//const auth = getAuth(app);
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage),
+});
 const storageRef = sRef(getStorage(), "timetables");
 
+//
 export {
   auth,
   storageRef,
