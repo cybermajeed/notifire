@@ -15,6 +15,8 @@ import { useState } from "react";
 export default function App() {
   const [name, setName] = useState("");
   const [ttUrl, setTtUrl] = useState("");
+  const loadingImg =
+    "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=cdce32e0-f5d1-4eba-a106-a535a0ebb818";
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const name = user.email.split("@")[0].toUpperCase();
@@ -24,7 +26,8 @@ export default function App() {
           setTtUrl(url);
         })
         .catch((error) => {
-          console.error(error);
+          console.log(error);
+          setTtUrl(loadingImg);
         });
     }
   });
@@ -71,9 +74,7 @@ export default function App() {
         <Image
           style={styles.dashBoard.timeTableArea.Img}
           source={{
-            uri: ttUrl
-              ? ttUrl
-              : "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=cdce32e0-f5d1-4eba-a106-a535a0ebb818",
+            uri: ttUrl ? ttUrl : loadingImg,
           }}
         />
       </View>
