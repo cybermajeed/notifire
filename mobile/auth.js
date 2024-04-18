@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref as sRef, getDownloadURL } from "firebase/storage";
 import {
-  getAuth,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
   initializeAuth,
   getReactNativePersistence,
 } from "firebase/auth";
+import { getDatabase, ref as dRef, child, get } from "firebase/database";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 //
 const firebaseConfig = {
@@ -28,12 +28,24 @@ const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(AsyncStorage),
 });
 const storageRef = sRef(getStorage(), "timetables");
-
+const database = getDatabase(app);
+const dbRef = dRef(database);
+//
+let userDisplayName = "";
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    userDisplayName = user.email.split("@")[0].toUpperCase();
+  }
+});
 //
 export {
   auth,
   storageRef,
   sRef,
+  userDisplayName,
+  get,
+  child,
+  dbRef,
   getDownloadURL,
   signInWithEmailAndPassword,
   signOut,

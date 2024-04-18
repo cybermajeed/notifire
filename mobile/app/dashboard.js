@@ -11,7 +11,6 @@ import {
   getDownloadURL,
 } from "../auth";
 import { useState } from "react";
-
 export default function App() {
   const [name, setName] = useState("");
   const [ttUrl, setTtUrl] = useState("");
@@ -19,16 +18,18 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=cdce32e0-f5d1-4eba-a106-a535a0ebb818";
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      const name = user.email.split("@")[0].toUpperCase();
-      setName(name);
-      getDownloadURL(sRef(storageRef, `${name.toLowerCase()}.png`))
-        .then((url) => {
-          setTtUrl(url);
-        })
-        .catch((error) => {
-          console.log(error);
-          setTtUrl(loadingImg);
-        });
+      const tempName = user.email.split("@")[0].toUpperCase();
+      setName(tempName);
+      if (name) {
+        getDownloadURL(sRef(storageRef, `${name.toLowerCase()}.png`))
+          .then((url) => {
+            setTtUrl(url);
+          })
+          .catch((error) => {
+            console.log(error);
+            setTtUrl(loadingImg);
+          });
+      }
     }
   });
   const LogoutUser = () => {

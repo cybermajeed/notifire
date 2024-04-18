@@ -13,12 +13,12 @@ import {
 import { styles } from "../style";
 import { useState, useEffect } from "react";
 import { auth, signInWithEmailAndPassword } from "../auth";
+
 //
 export default function App({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   //
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
