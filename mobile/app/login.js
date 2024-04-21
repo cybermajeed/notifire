@@ -13,6 +13,7 @@ import {
 import { styles } from "../style";
 import { useState, useEffect } from "react";
 import { auth, signInWithEmailAndPassword } from "../auth";
+import { schedulePushNotification, timetable } from "./dashboard";
 
 //
 export default function App({ navigation }) {
@@ -23,6 +24,14 @@ export default function App({ navigation }) {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigation.navigate("Dashboard");
+        //notify
+        schedulePushNotification(8, 45, user.email.split("@"), "11A");
+        schedulePushNotification(9, 0, user.email.split("@"), "12B");
+        schedulePushNotification(9, 30, user.email.split("@"), "11B");
+        schedulePushNotification(19, 30, user.email.split("@"), "12A");
+        schedulePushNotification(20, 0, user.email.split("@"), "12B");
+        schedulePushNotification(20, 15, user.email.split("@"), "12C");
+        schedulePushNotification(20, 30, user.email.split("@"), "11A");
       } else {
         navigation.navigate("Login");
       }
