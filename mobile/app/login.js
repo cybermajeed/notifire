@@ -24,6 +24,61 @@ let t = {
   tuesday: ["", "", "", "12A", "12A", "", "12A", ""],
   wednesday: ["", "11A", "11A", "", "12A", "", "", ""],
 };
+
+
+-------------FORMAT-------------
+[
+  {
+    "subject": "Physics",
+    "friday": [
+      "Free Period",
+      "12A",
+      "Free Period",
+      "Free Period"
+    ],
+    "monday": [
+      "Free Period",
+      "12A",
+      "Free Period",
+      "12B",
+      "12A",
+      "12A",
+      "Free Period",
+      "11A"
+    ],
+    "thursday": [
+      "11B",
+      "11A",
+      "11A",
+      "Free Period",
+      "Free Period",
+      "12A",
+      "11A",
+      "Free Period"
+    ],
+    "tuesday": [
+      "11A",
+      "12A",
+      "Free Period",
+      "12A",
+      "12A",
+      "Free Period",
+      "12A",
+      "Free Period"
+    ],
+    "wednesday": [
+      "Free Period",
+      "11A",
+      "11A",
+      "11B",
+      "12A",
+      "11A",
+      "11A",
+      "Free Period"
+    ]
+  }
+]
+-------------FORMAT ENDS-------------
 */
 export default function App({ navigation }) {
   const [username, setUsername] = useState("");
