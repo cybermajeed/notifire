@@ -1,18 +1,3 @@
-/*
-//getTimetableJSON(username),
-//setInterval() -> backgroundNotification(periodNum)
-{
-    subject: "Physics",
-    monday: ["", "12A", "", "", "12A", "12A", "", ""],
-    tuesday: ["", "", "", "12A", "12A", "", "12A", ""],
-    wednesday: ["", "11A", "11A", "", "12A", "", "", ""],
-    thursday: ["", "11A", "11A", "", "", "12A", "11A", ""],
-    friday: ["", "12A", "", ""],
-}
-
-firebase notifire
-*/
-
 import { StatusBar } from "expo-status-bar";
 import {
   Text,
@@ -38,7 +23,6 @@ import {
 import { useEffect, useRef, useState } from "react";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
-import { getLimitedUseToken } from "firebase/app-check";
 ///////
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -48,14 +32,13 @@ Notifications.setNotificationHandler({
   }),
 });
 ///////////////
-let timetable = {};
 export default function App() {
   ////////////
   const [expoPushToken, setExpoPushToken] = useState("");
   const [notification, setNotification] = useState(false);
   const notificationListener = useRef();
   const responseListener = useRef();
-  ///////////
+  ///////////notify
   useEffect(() => {
     registerForPushNotificationsAsync().then((token) =>
       setExpoPushToken(token)
@@ -98,20 +81,8 @@ export default function App() {
             console.log(error);
             setTtUrl(loadingImg);
           });
-        /////////////////////////
-        get(child(dbRef, `timetables/${name.toLowerCase()}`))
-          .then((snapshot) => {
-            if (snapshot.exists()) {
-              timetable = snapshot.val();
-            }
-          })
-          .catch((error) => {
-            console.error("----", error);
-          });
+        ///
       }
-      /////////////////////////////////////////
-      //notify
-      /////////////////////////////////////////
     }
   });
   const LogoutUser = () => {
@@ -119,9 +90,6 @@ export default function App() {
       {
         text: "No",
         style: "cancel",
-        onPress: () => {
-          console.log(timetable["subject"]);
-        },
       },
       {
         text: "Yes",
@@ -170,18 +138,21 @@ export default function App() {
 }
 
 async function schedulePushNotification(hr, min, userName, msg) {
-  await Notifications.scheduleNotificationAsync({
-    content: {
-      title: `Notifire - ${userName}`,
-      body: `Class -->> ${msg}`,
-      data: { data: "Data...!" },
-    },
-    trigger: {
-      hour: hr,
-      minute: min,
-      repeats: true,
-    },
-  });
+  let day = new Date().getDay();
+  if (day >= 1 || day <= 5) {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: `Hello, ${userName}!`,
+        body:
+          msg == "Free Period" || msg == "Interval" ? msg : `Class @ ${msg}`,
+      },
+      trigger: {
+        hour: hr,
+        minute: min,
+        repeats: true,
+      },
+    });
+  }
 }
 
 async function registerForPushNotificationsAsync() {
@@ -221,4 +192,4 @@ async function registerForPushNotificationsAsync() {
   return token;
 }
 
-export { schedulePushNotification, timetable };
+export { schedulePushNotification };
