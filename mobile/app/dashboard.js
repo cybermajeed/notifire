@@ -181,7 +181,7 @@ async function registerForPushNotificationsAsync() {
     }
     token = (
       await Notifications.getExpoPushTokenAsync({
-        projectId: "6a9a0921-daaa-4b4d-a43e-484daa7660d0",
+        projectId: "342d0be2-df54-4124-85a6-b3f971503821",
       })
     ).data;
     console.log(token);
