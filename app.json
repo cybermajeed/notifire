@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Notifire",
+    "slug": "Notifire",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cybermajeed.Notifire"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-logo.png"
+      },
+      "package": "com.cybermajeed.Notifire"
+    },
+    "web": {
+      "favicon": "./assets/logo.png"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/6a9a0921-daaa-4b4d-a43e-484daa7660d0"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/logo.png",
+          "color": "#ffffff",
+          "sounds": [
+            "./assets/notify.wav"
+          ]
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "6a9a0921-daaa-4b4d-a43e-484daa7660d0"
+      }
+    }
+  }
+}
