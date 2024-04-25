@@ -16,9 +16,6 @@ import {
   sRef,
   storageRef,
   getDownloadURL,
-  get,
-  child,
-  dbRef,
 } from "../auth";
 import { useEffect, useRef, useState } from "react";
 import * as Device from "expo-device";
@@ -65,7 +62,7 @@ export default function App() {
   const [name, setName] = useState("");
   const [ttUrl, setTtUrl] = useState("");
   const loadingImg =
-    "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=cdce32e0-f5d1-4eba-a106-a535a0ebb818";
+    "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=68d27fbb-5872-4092-a855-0b178b0c0a65";
   //
 
   onAuthStateChanged(auth, (user) => {
@@ -96,6 +93,7 @@ export default function App() {
         onPress: () => {
           signOut(auth)
             .then(() => {
+              Notifications.cancelAllScheduledNotificationsAsync();
               console.log("signed out");
             })
             .catch((error) => {
@@ -112,7 +110,7 @@ export default function App() {
       <View style={styles.dashBoard.topNavBar}>
         <View style={styles.dashBoard.topNavBar.ImgView}>
           <Image
-            source={require("../assets/logo.png")}
+            source={require("../assets/dashboard-logo.png")}
             style={styles.dashBoard.topNavBar.Img}
           />
         </View>
@@ -136,25 +134,7 @@ export default function App() {
     </SafeAreaView>
   );
 }
-
-async function schedulePushNotification(hr, min, userName, msg) {
-  let day = new Date().getDay();
-  if (day >= 1 || day <= 5) {
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: `Hello, ${userName}!`,
-        body:
-          msg == "Free Period" || msg == "Interval" ? msg : `Class @ ${msg}`,
-      },
-      trigger: {
-        hour: hr,
-        minute: min,
-        repeats: true,
-      },
-    });
-  }
-}
-
+//////////
 async function registerForPushNotificationsAsync() {
   let token;
 
@@ -181,15 +161,13 @@ async function registerForPushNotificationsAsync() {
     }
     token = (
       await Notifications.getExpoPushTokenAsync({
-        projectId: "6a9a0921-daaa-4b4d-a43e-484daa7660d0",
+        projectId: "dde791a7-2443-4e7f-b1b5-756f4946df60",
       })
     ).data;
-    console.log(token);
   } else {
     alert("Must use physical device for Push Notifications");
   }
-
   return token;
 }
 
-export { schedulePushNotification };
+export { Notifications };

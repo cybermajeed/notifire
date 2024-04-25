@@ -2,9 +2,9 @@
   "expo": {
     "name": "Notifire",
     "slug": "Notifire",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/adaptive-logo.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -15,39 +15,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.cybermajeed.Notifire"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-logo.png"
+        "foregroundImage": "./assets/adaptive-logo.png",
+        "backgroundColor": "#ffffff"
       },
-      "package": "com.cybermajeed.Notifire"
+      "package": "com.cyber_majeed.Notifire"
     },
     "web": {
-      "favicon": "./assets/logo.png"
+      "favicon": "./assets/adaptive-logo.png"
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/6a9a0921-daaa-4b4d-a43e-484daa7660d0"
-    },
-    "plugins": [
-      [
-        "expo-notifications",
-        {
-          "icon": "./assets/logo.png",
-          "color": "#ffffff",
-          "sounds": [
-            "./assets/notify.wav"
-          ]
-        }
-      ]
-    ],
     "extra": {
       "eas": {
-        "projectId": "6a9a0921-daaa-4b4d-a43e-484daa7660d0"
+        "projectId": "dde791a7-2443-4e7f-b1b5-756f4946df60"
       }
     }
   }

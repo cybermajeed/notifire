@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
       ImgView: {
         height: "100%",
         flex: 1,
-        paddingVertical: 3,
       },
       welcomeBtnView: {
         height: "100%",

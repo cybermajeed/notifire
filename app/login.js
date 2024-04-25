@@ -13,19 +13,15 @@ import {
 import { styles } from "../style";
 import { useState, useEffect } from "react";
 import { auth, child, dbRef, get, signInWithEmailAndPassword } from "../auth";
-import { schedulePushNotification } from "./dashboard";
+import {
+  scheduleOnFriday,
+  scheduleOnMonday,
+  scheduleOnThursday,
+  scheduleOnTuesday,
+  scheduleOnWednesday,
+} from "./schedulePerDay";
 //
 /*
-let t = {
-  subject: "Physics",
-  friday: ["", "12A", "", ""],
-  monday: ["", "12A", "", "", "12A", "12A", "", ""],
-  thursday: ["", "11A", "11A", "", "", "12A", "11A", ""],
-  tuesday: ["", "", "", "12A", "12A", "", "12A", ""],
-  wednesday: ["", "11A", "11A", "", "12A", "", "", ""],
-};
-
-
 -------------FORMAT-------------
 [
   {
@@ -87,130 +83,6 @@ export default function App({ navigation }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        /////////////////////////
-        let timetable = [];
-        let day = new Date().getDay();
-        let dayNameList = [
-          "sunday",
-          "monday",
-          "tuesday",
-          "wednesday",
-          "thursday",
-          "friday",
-          "saturday",
-        ];
-        let dayName = dayNameList[day];
-        ////////////////////////////////
-        const displayName = user.email.split("@")[0].toUpperCase();
-        get(child(dbRef, `timetables/${displayName.toLowerCase()}`))
-          .then((snapshot) => {
-            if (snapshot.exists()) {
-              timetable = snapshot.val()[0];
-              //schedulePushNotification(hr, min, displayName, period);
-              if (day != 0 && day != 6) {
-                if (day == 5) {
-                  //period 1
-                  schedulePushNotification(
-                    8,
-                    20,
-                    displayName,
-                    timetable["friday"][0]
-                  );
-                  //period 2
-                  schedulePushNotification(
-                    9,
-                    5,
-                    displayName,
-                    timetable["friday"][1]
-                  );
-                  //break
-                  schedulePushNotification(9, 50, displayName, "Interval");
-                  //period 3
-                  schedulePushNotification(
-                    10,
-                    10,
-                    displayName,
-                    timetable["friday"][2]
-                  );
-                  //period 4
-                  schedulePushNotification(
-                    10,
-                    55,
-                    displayName,
-                    timetable["friday"][3]
-                  );
-                } else {
-                  //period 1
-                  schedulePushNotification(
-                    8,
-                    15,
-                    displayName,
-                    timetable[dayName][0]
-                  );
-                  //period 2
-                  schedulePushNotification(
-                    8,
-                    55,
-                    displayName,
-                    timetable[dayName][1]
-                  );
-                  //period 3
-                  schedulePushNotification(
-                    9,
-                    35,
-                    displayName,
-                    timetable[dayName][2]
-                  );
-                  //break
-                  schedulePushNotification(10, 15, displayName, "Interval");
-                  //period 4
-                  schedulePushNotification(
-                    10,
-                    35,
-                    displayName,
-                    timetable[dayName][3]
-                  );
-                  //period 5
-                  schedulePushNotification(
-                    11,
-                    15,
-                    displayName,
-                    timetable[dayName][4]
-                  );
-                  //period 6
-                  schedulePushNotification(
-                    11,
-                    55,
-                    displayName,
-                    timetable[dayName][5]
-                  );
-                  //break
-                  // 12 35
-                  schedulePushNotification(12, 35, displayName, "Interval");
-                  //period 7
-                  //12 45
-                  schedulePushNotification(
-                    12,
-                    45,
-                    displayName,
-                    timetable[dayName][6]
-                  );
-                  //period 8
-                  schedulePushNotification(
-                    13,
-                    25,
-                    displayName,
-                    timetable[dayName][7]
-                  );
-                }
-              }
-              ////////////////////////////////
-            }
-          })
-          .catch((error) => {
-            console.error("----", error);
-          });
-        //notify
         navigation.navigate("Dashboard");
       } else {
         navigation.navigate("Login");
@@ -229,6 +101,23 @@ export default function App({ navigation }) {
         // Signed in
         const user = userCredential.user;
         console.log("logged in as: " + user.email);
+        /////////////////////////
+        let timetable = [];
+        const displayName = user.email.split("@")[0].toUpperCase();
+        get(child(dbRef, `timetables/${displayName.toLowerCase()}`))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              timetable = snapshot.val()[0];
+              scheduleOnMonday(displayName, timetable["monday"]);
+              scheduleOnTuesday(displayName, timetable["tuesday"]);
+              scheduleOnWednesday(displayName, timetable["wednesday"]);
+              scheduleOnThursday(displayName, timetable["thursday"]);
+              scheduleOnFriday(displayName, timetable["friday"]);
+            }
+          })
+          .catch((error) => {
+            console.error("----", error);
+          });
         // ...
       })
       .catch((error) => {
