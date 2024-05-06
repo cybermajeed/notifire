@@ -62,7 +62,7 @@ export default function App() {
   const [name, setName] = useState("");
   const [ttUrl, setTtUrl] = useState("");
   const loadingImg =
-    "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=68d27fbb-5872-4092-a855-0b178b0c0a65";
+    "https://firebasestorage.googleapis.com/v0/b/notifire-6339a.appspot.com/o/timetables%2Floading.png?alt=media&token=7b5e8177-c8e2-41a9-8351-abb06ca38b21";
   //
 
   onAuthStateChanged(auth, (user) => {
@@ -110,7 +110,7 @@ export default function App() {
       <View style={styles.dashBoard.topNavBar}>
         <View style={styles.dashBoard.topNavBar.ImgView}>
           <Image
-            source={require("../assets/dashboard-logo.png")}
+            source={require("../assets/logo.png")}
             style={styles.dashBoard.topNavBar.Img}
           />
         </View>
@@ -161,7 +161,7 @@ async function registerForPushNotificationsAsync() {
     }
     token = (
       await Notifications.getExpoPushTokenAsync({
-        projectId: "dde791a7-2443-4e7f-b1b5-756f4946df60",
+        projectId: "6a9a0921-daaa-4b4d-a43e-484daa7660d0",
       })
     ).data;
   } else {

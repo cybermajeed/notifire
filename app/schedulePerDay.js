@@ -8,7 +8,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[0] == "Free Period"
           ? periodsList[0]
-          : `Class @ ${periodsList[0]}`,
+          : `8:15 - Class @ ${periodsList[0]}`,
     },
     trigger: {
       hour: 8,
@@ -24,7 +24,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[1] == "Free Period"
           ? periodsList[1]
-          : `Class @ ${periodsList[1]}`,
+          : `8:55 - Class @ ${periodsList[1]}`,
     },
     trigger: {
       hour: 8,
@@ -40,7 +40,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[2] == "Free Period"
           ? periodsList[2]
-          : `Class @ ${periodsList[2]}`,
+          : `9:35 - Class @ ${periodsList[2]}`,
     },
     trigger: {
       hour: 9,
@@ -53,7 +53,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "10:15 - Interval",
     },
     trigger: {
       hour: 10,
@@ -69,7 +69,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[3] == "Free Period"
           ? periodsList[3]
-          : `Class @ ${periodsList[3]}`,
+          : `10:35 - Class @ ${periodsList[3]}`,
     },
     trigger: {
       hour: 10,
@@ -85,7 +85,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[4] == "Free Period"
           ? periodsList[4]
-          : `Class @ ${periodsList[4]}`,
+          : `11:15 - Class @ ${periodsList[4]}`,
     },
     trigger: {
       hour: 11,
@@ -101,7 +101,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[5] == "Free Period"
           ? periodsList[5]
-          : `Class @ ${periodsList[5]}`,
+          : `11:55 - Class @ ${periodsList[5]}`,
     },
     trigger: {
       hour: 11,
@@ -114,7 +114,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "12:35 - Interval",
     },
     trigger: {
       hour: 12,
@@ -130,7 +130,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[6] == "Free Period"
           ? periodsList[6]
-          : `Class @ ${periodsList[6]}`,
+          : `12:45 - Class @ ${periodsList[6]}`,
     },
     trigger: {
       hour: 12,
@@ -146,7 +146,7 @@ export async function scheduleOnMonday(displayName, periodsList) {
       body:
         periodsList[7] == "Free Period"
           ? periodsList[7]
-          : `Class @ ${periodsList[7]}`,
+          : `13:25  - Class @ ${periodsList[7]}`,
     },
     trigger: {
       hour: 13,
@@ -164,7 +164,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[0] == "Free Period"
           ? periodsList[0]
-          : `Class @ ${periodsList[0]}`,
+          : `8:15 - Class @ ${periodsList[0]}`,
     },
     trigger: {
       hour: 8,
@@ -180,7 +180,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[1] == "Free Period"
           ? periodsList[1]
-          : `Class @ ${periodsList[1]}`,
+          : `8:55 - Class @ ${periodsList[1]}`,
     },
     trigger: {
       hour: 8,
@@ -196,7 +196,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[2] == "Free Period"
           ? periodsList[2]
-          : `Class @ ${periodsList[2]}`,
+          : `9:35 - Class @ ${periodsList[2]}`,
     },
     trigger: {
       hour: 9,
@@ -209,7 +209,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "10:15 - Interval",
     },
     trigger: {
       hour: 10,
@@ -225,7 +225,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[3] == "Free Period"
           ? periodsList[3]
-          : `Class @ ${periodsList[3]}`,
+          : `10:35 - Class @ ${periodsList[3]}`,
     },
     trigger: {
       hour: 10,
@@ -241,7 +241,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[4] == "Free Period"
           ? periodsList[4]
-          : `Class @ ${periodsList[4]}`,
+          : `11:15 - Class @ ${periodsList[4]}`,
     },
     trigger: {
       hour: 11,
@@ -257,7 +257,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[5] == "Free Period"
           ? periodsList[5]
-          : `Class @ ${periodsList[5]}`,
+          : `11:55 - Class @ ${periodsList[5]}`,
     },
     trigger: {
       hour: 11,
@@ -270,7 +270,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "12:35  - Interval",
     },
     trigger: {
       hour: 12,
@@ -286,7 +286,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[6] == "Free Period"
           ? periodsList[6]
-          : `Class @ ${periodsList[6]}`,
+          : `12:45 - Class @ ${periodsList[6]}`,
     },
     trigger: {
       hour: 12,
@@ -302,7 +302,7 @@ export async function scheduleOnTuesday(displayName, periodsList) {
       body:
         periodsList[7] == "Free Period"
           ? periodsList[7]
-          : `Class @ ${periodsList[7]}`,
+          : `13:25 - Class @ ${periodsList[7]}`,
     },
     trigger: {
       hour: 13,
@@ -320,7 +320,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[0] == "Free Period"
           ? periodsList[0]
-          : `Class @ ${periodsList[0]}`,
+          : `8:15 - Class @ ${periodsList[0]}`,
     },
     trigger: {
       hour: 8,
@@ -336,7 +336,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[1] == "Free Period"
           ? periodsList[1]
-          : `Class @ ${periodsList[1]}`,
+          : `8:55 - Class @ ${periodsList[1]}`,
     },
     trigger: {
       hour: 8,
@@ -352,7 +352,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[2] == "Free Period"
           ? periodsList[2]
-          : `Class @ ${periodsList[2]}`,
+          : `9:35  - Class @ ${periodsList[2]}`,
     },
     trigger: {
       hour: 9,
@@ -365,7 +365,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "10:15 - Interval",
     },
     trigger: {
       hour: 10,
@@ -381,7 +381,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[3] == "Free Period"
           ? periodsList[3]
-          : `Class @ ${periodsList[3]}`,
+          : `10:35 - Class @ ${periodsList[3]}`,
     },
     trigger: {
       hour: 10,
@@ -397,7 +397,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[4] == "Free Period"
           ? periodsList[4]
-          : `Class @ ${periodsList[4]}`,
+          : `11:15 - Class @ ${periodsList[4]}`,
     },
     trigger: {
       hour: 11,
@@ -413,7 +413,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[5] == "Free Period"
           ? periodsList[5]
-          : `Class @ ${periodsList[5]}`,
+          : `11:55 - Class @ ${periodsList[5]}`,
     },
     trigger: {
       hour: 11,
@@ -426,7 +426,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "12:35 - Interval",
     },
     trigger: {
       hour: 12,
@@ -442,7 +442,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[6] == "Free Period"
           ? periodsList[6]
-          : `Class @ ${periodsList[6]}`,
+          : `12:45 - Class @ ${periodsList[6]}`,
     },
     trigger: {
       hour: 12,
@@ -458,7 +458,7 @@ export async function scheduleOnWednesday(displayName, periodsList) {
       body:
         periodsList[7] == "Free Period"
           ? periodsList[7]
-          : `Class @ ${periodsList[7]}`,
+          : `13:25 - Class @ ${periodsList[7]}`,
     },
     trigger: {
       hour: 13,
@@ -469,7 +469,6 @@ export async function scheduleOnWednesday(displayName, periodsList) {
   });
 }
 export async function scheduleOnThursday(displayName, periodsList) {
-  console.log(`set: ${displayName} ---- ${periodsList}`);
   //period 1
   await Notifications.scheduleNotificationAsync({
     content: {
@@ -477,7 +476,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[0] == "Free Period"
           ? periodsList[0]
-          : `Class @ ${periodsList[0]}`,
+          : `8:15 - Class @ ${periodsList[0]}`,
     },
     trigger: {
       hour: 8,
@@ -493,7 +492,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[1] == "Free Period"
           ? periodsList[1]
-          : `Class @ ${periodsList[1]}`,
+          : `8:55 - Class @ ${periodsList[1]}`,
     },
     trigger: {
       hour: 8,
@@ -509,7 +508,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[2] == "Free Period"
           ? periodsList[2]
-          : `Class @ ${periodsList[2]}`,
+          : `9:35 - Class @ ${periodsList[2]}`,
     },
     trigger: {
       hour: 9,
@@ -522,7 +521,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "10:15 - Interval",
     },
     trigger: {
       hour: 10,
@@ -538,7 +537,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[3] == "Free Period"
           ? periodsList[3]
-          : `Class @ ${periodsList[3]}`,
+          : `10:35 - Class @ ${periodsList[3]}`,
     },
     trigger: {
       hour: 10,
@@ -554,7 +553,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[4] == "Free Period"
           ? periodsList[4]
-          : `Class @ ${periodsList[4]}`,
+          : `11:15 - Class @ ${periodsList[4]}`,
     },
     trigger: {
       hour: 11,
@@ -570,7 +569,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[5] == "Free Period"
           ? periodsList[5]
-          : `Class @ ${periodsList[5]}`,
+          : `11:55 - Class @ ${periodsList[5]}`,
     },
     trigger: {
       hour: 11,
@@ -583,7 +582,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "12:35 - Interval",
     },
     trigger: {
       hour: 12,
@@ -599,7 +598,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[6] == "Free Period"
           ? periodsList[6]
-          : `Class @ ${periodsList[6]}`,
+          : `12:45 - Class @ ${periodsList[6]}`,
     },
     trigger: {
       hour: 12,
@@ -615,7 +614,7 @@ export async function scheduleOnThursday(displayName, periodsList) {
       body:
         periodsList[7] == "Free Period"
           ? periodsList[7]
-          : `Class @ ${periodsList[7]}`,
+          : `13:25 - Class @ ${periodsList[7]}`,
     },
     trigger: {
       hour: 13,
@@ -633,7 +632,7 @@ export async function scheduleOnFriday(displayName, periodsList) {
       body:
         periodsList[0] == "Free Period"
           ? periodsList[0]
-          : `Class @ ${periodsList[0]}`,
+          : `8:20 - Class @ ${periodsList[0]}`,
     },
     trigger: {
       hour: 8,
@@ -649,7 +648,7 @@ export async function scheduleOnFriday(displayName, periodsList) {
       body:
         periodsList[1] == "Free Period"
           ? periodsList[1]
-          : `Class @ ${periodsList[1]}`,
+          : `09:05 - Class @ ${periodsList[1]}`,
     },
     trigger: {
       hour: 9,
@@ -662,7 +661,7 @@ export async function scheduleOnFriday(displayName, periodsList) {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: `Hello, ${displayName}!`,
-      body: "Interval",
+      body: "09: 50 - Interval",
     },
     trigger: {
       hour: 9,
@@ -678,7 +677,7 @@ export async function scheduleOnFriday(displayName, periodsList) {
       body:
         periodsList[3] == "Free Period"
           ? periodsList[3]
-          : `Class @ ${periodsList[3]}`,
+          : `10:10 - Class @ ${periodsList[3]}`,
     },
     trigger: {
       hour: 10,
@@ -694,7 +693,7 @@ export async function scheduleOnFriday(displayName, periodsList) {
       body:
         periodsList[4] == "Free Period"
           ? periodsList[4]
-          : `Class @ ${periodsList[4]}`,
+          : `10:55 - Class @ ${periodsList[4]}`,
     },
     trigger: {
       hour: 10,
