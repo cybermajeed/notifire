@@ -11,7 +11,7 @@ import { getDatabase, ref as dRef, child, get } from "firebase/database";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 //
 const firebaseConfig = {
-  apiKey: "AIzaSyAvVvFLrZDQLIqN0m314ANryJu-zUOOY0Y",
+  apiKey: /*[Your API key]*/,
   authDomain: "notifire-6339a.firebaseapp.com",
   projectId: "notifire-6339a",
   databaseURL: "https://notifire-6339a-default-rtdb.firebaseio.com/",
